@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #a5cbea;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.efrei.controller.MainPageController">
+   <top>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="143.0" layoutY="14.0" text="A-4MENIC" textFill="#884481">
+               <font>
+                  <Font name="Bauhaus 93" size="72.0" />
+               </font>
+            </Label>
+            <Label layoutX="13.0" layoutY="100.0" text="Bienvenue dans ton espace administrateur">
+               <font>
+                  <Font name="Bauhaus 93" size="20.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnLogout" layoutX="13.0" layoutY="14.0" mnemonicParsing="false" onAction="#userLogout" style="-fx-background-color: #70ccd4;" text="Deconnexion">
+               <font>
+                  <Font name="Bauhaus 93" size="12.0" />
+               </font>
+            </Button>
+            <Line endX="470.33331298828125" endY="1.52587890625E-5" layoutX="114.0" layoutY="96.0" startX="-100.0" />
+         </children>
+      </AnchorPane>
+   </top>
+</BorderPane>
