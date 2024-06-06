@@ -1,7 +1,5 @@
 package com.efrei.controller;
 
-import java.io.IOException;
-
 import com.efrei.Login;
 import com.efrei.MainApp;
 
@@ -11,24 +9,26 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 
 public class LoginController {
 
 	@FXML
-	private Button button;
+	private Button bntLogin;
 
 	@FXML
-	private Label wrongLogin;
-
-	@FXML
-	private TextField username;
+	private Button bntSignin;
 
 	@FXML
 	private PasswordField password;
 
 	@FXML
-	public void userLogin(ActionEvent event) throws IOException {
+	private TextField username;
+
+	@FXML
+	private Label wrongLogin;
+
+	@FXML
+	public void userLogin(ActionEvent event) throws Exception {
 
 		MainApp ma = new MainApp();
 
@@ -38,7 +38,7 @@ public class LoginController {
 
 		boolean connected = login.checkLogin(user, pw, wrongLogin);
 
-		if (connected == true) {
+		if (connected) {
 			ma.changeScene("MainPage.fxml");
 		}
 
