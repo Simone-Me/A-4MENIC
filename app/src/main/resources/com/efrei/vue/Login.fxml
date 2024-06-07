@@ -31,28 +31,38 @@
          <children>
             <AnchorPane nodeOrientation="LEFT_TO_RIGHT" prefHeight="240.0" prefWidth="341.0">
                <children>
-                  <ImageView fitHeight="72.0" fitWidth="80.0" layoutX="135.0" layoutY="-7.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="72.0" fitWidth="80.0" layoutX="135.0" layoutY="-9.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../image/locker.png" />
                      </image>
                   </ImageView>
-                  <Label layoutX="184.0" layoutY="104.0" text="Username" textFill="#884481">
+                  <Label layoutX="184.0" layoutY="73.0" text="Username" textFill="#884481">
                      <font>
-                        <Font size="20.0" />
+                        <Font name="Yu Mincho Regular" size="20.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="username" layoutX="21.0" layoutY="106.0" promptText="Username" />
-                  <Label layoutX="184.0" layoutY="145.0" text="Password" textFill="#884481">
+                  <TextField fx:id="username" layoutX="21.0" layoutY="75.0" promptText="Username" />
+                  <Label layoutX="184.0" layoutY="114.0" text="Password" textFill="#884481">
                      <font>
-                        <Font size="20.0" />
+                        <Font name="Yu Mincho Regular" size="20.0" />
                      </font>
                   </Label>
-                  <PasswordField fx:id="password" layoutX="21.0" layoutY="148.0" promptText="Password" />
-                  <Label fx:id="wrongLogin" layoutX="180.0" layoutY="65.0" prefHeight="36.0" prefWidth="97.0" textFill="RED" wrapText="true">
+                  <PasswordField fx:id="password" layoutX="21.0" layoutY="117.0" promptText="Password" />
+                  <Label fx:id="wrongLogin" layoutX="215.0" layoutY="13.0" prefHeight="36.0" prefWidth="97.0" textFill="RED" wrapText="true">
                      <font>
                         <Font name="System Bold Italic" size="12.0" />
                      </font>
                   </Label>
+                  <Button fx:id="bntLogin" layoutX="170.0" layoutY="156.0" mnemonicParsing="false" onAction="#userLogin" onKeyPressed="#userLoginEnter" prefHeight="39.0" prefWidth="117.0" style="-fx-background-color: #70ccd4; -fx-cursor: hand;" text="Connexion">
+                     <font>
+                        <Font name="Bauhaus 93" size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="bntInsertCode" layoutX="62.0" layoutY="165.0" mnemonicParsing="false" onAction="#showCodeArea" prefHeight="21.0" prefWidth="79.0" style="-fx-background-color: #c17eb5; -fx-cursor: hand;" text="Premier fois">
+                     <font>
+                        <Font name="Bauhaus 93" size="12.0" />
+                     </font>
+                  </Button>
                </children>
             </AnchorPane>
          </children></HBox>
@@ -63,11 +73,26 @@
             <AnchorPane prefHeight="100.0" prefWidth="606.0">
                <children>
                   <Label layoutX="380.0" layoutY="68.0" text="© 2024 AMENIC FR, All Right reserved." />
-                  <Button fx:id="bntLogin" layoutX="382.0" layoutY="-13.0" mnemonicParsing="false" onAction="#userLogin" prefHeight="25.0" prefWidth="108.0" style="-fx-background-color: #70ccd4; -fx-cursor: hand;" text="Connexion">
-                     <font>
-                        <Font name="Bauhaus 93" size="12.0" />
-                     </font>
-                  </Button>
+                  <AnchorPane fx:id="signinArea" layoutX="266.0" layoutY="5.0" prefHeight="90.0" prefWidth="295.0" visible="false">
+                     <children>
+                        <ImageView fitHeight="15.0" fitWidth="20.0" layoutX="18.0" layoutY="12.0" onMouseClicked="#showInfoArea" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                           <image>
+                              <Image url="@../image/question_blue.png" />
+                           </image>
+                        </ImageView>
+                        <TextField layoutX="41.0" layoutY="6.0" prefHeight="25.0" prefWidth="157.0" promptText="Code activation" />
+                        <Button fx:id="bntSignin" layoutX="211.0" layoutY="8.0" mnemonicParsing="false" onAction="#userSignin" style="-fx-background-color: #70ccd4; -fx-cursor: hand;" text="Activation">
+                           <font>
+                              <Font name="Bauhaus 93" size="12.0" />
+                           </font>
+                        </Button>
+                        <Label fx:id="infoInsertCode" layoutX="7.0" layoutY="35.0" prefHeight="25.0" prefWidth="313.0" textAlignment="CENTER" textFill="#884481" wrapText="true">
+                           <font>
+                              <Font name="Yu Mincho Regular" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
                </children>
             </AnchorPane>
          </children></HBox>
