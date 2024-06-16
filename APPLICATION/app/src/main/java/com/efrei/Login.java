@@ -11,23 +11,33 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 
 public class Login {
 
-	@FXML
-	private Button bntLogin;
-
-	@FXML
-	private Button bntSignin;
-
-	@FXML
-	private PasswordField password;
-
-	@FXML
-	private TextField username;
-
-	@FXML
-	private Label wrongLogin;
+//	@FXML
+//	private Button bntInsertCode;
+//
+//	@FXML
+//	private Button bntLogin;
+//
+//	@FXML
+//	private Button bntSignin;
+//
+//	@FXML
+//	private Label infoInsertCode;
+//
+//	@FXML
+//	private PasswordField password;
+//
+//	@FXML
+//	private TextField username;
+//
+//	@FXML
+//	private Label wrongLogin;
+//	
+//	@FXML
+//	private AnchorPane signinArea;
 
 	public boolean checkLogin(String username, String password, Label wrongLogin) throws Exception {
 		boolean connected = false;
@@ -51,5 +61,27 @@ public class Login {
 			wrongLogin.setText("Infos incorrects !");
 		}
 		return connected;
+	}
+
+	public boolean showTextArea(boolean text, Label infoInsertCode) throws Exception {
+		if (!text) {
+			infoInsertCode.setText("Veuillez inserer le code a six chiffres recu. Ex. 000000");
+			text = true;
+		} else {
+			infoInsertCode.setText("");
+			text = false;
+		}
+		return text;
+	}
+
+	public boolean showSigninArea(boolean area, AnchorPane signinArea) throws Exception {
+		if (!area) {
+			signinArea.setVisible(true);
+			area = true;
+		} else {
+			signinArea.setVisible(false);
+			area = false;
+		}
+		return area;
 	}
 }

@@ -1,5 +1,10 @@
 package com.efrei.controller;
 
+import java.io.IOException;
+
+import com.efrei.MainApp;
+import com.efrei.model.Signin;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -8,6 +13,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
 public class SigninController {
@@ -16,10 +22,10 @@ public class SigninController {
 	private Button bntSignin;
 
 	@FXML
-	private AnchorPane btnLogin;
+	private AnchorPane loginSpace;
 
 	@FXML
-	private ChoiceBox<?> cinemaField;
+	private ChoiceBox<String> cinemaField;
 
 	@FXML
 	private PasswordField password;
@@ -28,10 +34,12 @@ public class SigninController {
 	private TextField username;
 
 	@FXML
-	private ChoiceBox<?> villeField;
+	private ChoiceBox<String> villeField;
 
 	@FXML
 	private Label wrongSignin;
+
+	boolean textInfoArea = false;
 
 	@FXML
 	void userLogin(ActionEvent event) {
@@ -43,4 +51,23 @@ public class SigninController {
 
 	}
 
+	@FXML
+	public void initialize() throws Exception {
+		Signin sn = new Signin();
+		sn.arrayFillVille(villeField);
+		cinemaField.setValue("Cinema");
+		villeField.setValue("Ville");
+	}
+
+	@FXML
+	void addCinemaCity(MouseEvent event) throws Exception {
+		Signin sn = new Signin();
+		sn.arrayFillCinema(cinemaField, villeField, textInfoArea, wrongSignin);
+	}
+
+	@FXML
+	void directLogin(MouseEvent event) throws IOException {
+		MainApp ma = new MainApp();
+		ma.changeScene("Login.fxml");
+	}
 }

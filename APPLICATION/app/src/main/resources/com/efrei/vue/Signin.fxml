@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #a5cbea;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.efrei.controller.LoginController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #c77fb4;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.efrei.controller.SigninController">
    <left>
       <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
@@ -20,7 +20,7 @@
                <children>
                   <ImageView fitHeight="400.0" fitWidth="357.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../image/moonlight.jpg" />
+                        <Image url="@../../../../../../build/resources/main/com/efrei/image/moonlight2.png" />
                      </image>
                   </ImageView>
                </children>
@@ -37,35 +37,35 @@
                         <Image url="@../image/locker.png" />
                      </image>
                   </ImageView>
-                  <Label layoutX="184.0" layoutY="44.0" text="Username" textFill="#884481">
+                  <Label layoutX="184.0" layoutY="44.0" text="Username" textFill="WHITE">
                      <font>
                         <Font name="Yu Mincho Regular" size="20.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="username" layoutX="21.0" layoutY="46.0" promptText="Username" />
-                  <Label layoutX="184.0" layoutY="85.0" text="Password" textFill="#884481">
+                  <TextField fx:id="username" layoutX="31.0" layoutY="46.0" promptText="Username" />
+                  <Label layoutX="184.0" layoutY="85.0" text="Password" textFill="WHITE">
                      <font>
                         <Font name="Yu Mincho Regular" size="20.0" />
                      </font>
                   </Label>
-                  <PasswordField fx:id="password" layoutX="21.0" layoutY="88.0" promptText="Password" />
-                  <Label fx:id="wrongSignin" layoutX="70.0" prefHeight="36.0" prefWidth="97.0" textFill="RED" wrapText="true">
+                  <PasswordField fx:id="password" layoutX="31.0" layoutY="88.0" promptText="Password" />
+                  <Label fx:id="wrongSignin" layoutX="36.0" prefHeight="36.0" prefWidth="222.0" textFill="RED" wrapText="true">
                      <font>
                         <Font name="System Bold Italic" size="12.0" />
                      </font>
                   </Label>
-                  <Label layoutX="186.0" layoutY="127.0" text="Ville" textFill="#884481">
+                  <Label layoutX="186.0" layoutY="127.0" text="Ville" textFill="WHITE">
                      <font>
                         <Font name="Yu Mincho Regular" size="20.0" />
                      </font>
                   </Label>
-                  <ChoiceBox fx:id="villeField" layoutX="21.0" layoutY="127.0" prefWidth="150.0" />
-                  <Label layoutX="187.0" layoutY="165.0" text="Cinema" textFill="#884481">
+                  <ChoiceBox fx:id="villeField" layoutX="31.0" layoutY="127.0" prefWidth="150.0" />
+                  <Label layoutX="187.0" layoutY="165.0" text="Cinema" textFill="WHITE">
                      <font>
                         <Font name="Yu Mincho Regular" size="20.0" />
                      </font>
                   </Label>
-                  <ChoiceBox fx:id="cinemaField" layoutX="22.0" layoutY="165.0" prefWidth="150.0" />
+                  <ChoiceBox fx:id="cinemaField" layoutX="32.0" layoutY="165.0" onMouseClicked="#addCinemaCity" prefWidth="150.0" />
                </children>
             </AnchorPane>
          </children></HBox>
@@ -75,20 +75,20 @@
          <children>
             <AnchorPane prefHeight="100.0" prefWidth="606.0">
                <children>
-                  <Label layoutX="380.0" layoutY="68.0" text="© 2024 AMENIC FR, All Right reserved." />
-                  <Button fx:id="bntSignin" layoutX="438.0" layoutY="22.0" mnemonicParsing="false" onAction="#userLogin" onKeyPressed="#userLoginEnter" prefHeight="39.0" prefWidth="117.0" style="-fx-background-color: #70ccd4; -fx-cursor: hand;" text="Creation">
+                  <Label layoutX="380.0" layoutY="68.0" text="© 2024 AMENIC FR, All Right reserved." textFill="WHITE" />
+                  <Button fx:id="bntSignin" layoutX="438.0" layoutY="22.0" mnemonicParsing="false" onAction="#userLogin" onKeyPressed="#userLoginEnter" prefHeight="39.0" prefWidth="117.0" style="-fx-background-color: #70ccd4; -fx-cursor: hand;" text="Creation" textFill="WHITE">
                      <font>
                         <Font name="Bauhaus 93" size="18.0" />
                      </font>
                   </Button>
-                  <AnchorPane fx:id="btnLogin" layoutX="270.0" layoutY="11.0" prefHeight="69.0" prefWidth="108.0">
+                  <AnchorPane fx:id="loginSpace" layoutX="256.0" layoutY="34.0" onMouseClicked="#directLogin" prefHeight="49.0" prefWidth="86.0" style="-fx-cursor: hand;">
                      <children>
-                        <Label layoutX="56.0" layoutY="28.0" text="Login" textFill="#884481">
+                        <Label layoutX="46.0" layoutY="16.0" text="Login" textFill="WHITE">
                            <font>
                               <Font name="Yu Mincho Regular" size="20.0" />
                            </font>
                         </Label>
-                        <ImageView fitHeight="56.0" fitWidth="60.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+                        <ImageView fitHeight="56.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
                            <image>
                               <Image url="@../image/arrow_back.png" />
                            </image>
@@ -102,7 +102,7 @@
    <top>
       <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="TOP_CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="341.0" text="A-4MENIC" textAlignment="CENTER" textFill="#884481">
+            <Label alignment="TOP_CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="341.0" text="A-4MENIC" textAlignment="CENTER">
                <font>
                   <Font name="Bauhaus 93" size="70.0" />
                </font>
