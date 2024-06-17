@@ -42,8 +42,9 @@ public class SigninController {
 	boolean textInfoArea = false;
 
 	@FXML
-	void userLogin(ActionEvent event) {
-
+	void userSignin(ActionEvent event) throws Exception {
+		Signin sn = new Signin();
+		sn.checkSignin(cinemaField, villeField, username, password, textInfoArea, wrongSignin);
 	}
 
 	@FXML

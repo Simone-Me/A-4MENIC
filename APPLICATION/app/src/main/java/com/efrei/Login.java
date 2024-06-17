@@ -15,30 +15,6 @@ import javafx.scene.layout.AnchorPane;
 
 public class Login {
 
-//	@FXML
-//	private Button bntInsertCode;
-//
-//	@FXML
-//	private Button bntLogin;
-//
-//	@FXML
-//	private Button bntSignin;
-//
-//	@FXML
-//	private Label infoInsertCode;
-//
-//	@FXML
-//	private PasswordField password;
-//
-//	@FXML
-//	private TextField username;
-//
-//	@FXML
-//	private Label wrongLogin;
-//	
-//	@FXML
-//	private AnchorPane signinArea;
-
 	public boolean checkLogin(String username, String password, Label wrongLogin) throws Exception {
 		boolean connected = false;
 		String user = "";
