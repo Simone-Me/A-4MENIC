@@ -27,14 +27,23 @@ public class MainApp extends Application {
 	}
 
 	public void changeScene(String fxml) throws IOException {
-		Parent pane = FXMLLoader.load(getClass().getResource("vue/"+fxml));
+		Parent pane = FXMLLoader.load(getClass().getResource("vue/" + fxml));
 		stg.getScene().setRoot(pane);
+	}
+
+	public void changeScene(String fxml, double width, double height, boolean resize) throws IOException {
+		Parent pane = FXMLLoader.load(getClass().getResource("vue/" + fxml));
+		stg.getScene().setRoot(pane);
+		stg.setWidth(width);
+		stg.setHeight(height);
+        stg.setResizable(resize);
+        stg.centerOnScreen();
 	}
 
 	public static void main(String[] args) {
 		launch(args);
 	}
-	
+
 	public void addTextLabel(Label label, String newLabel) {
 		String oldText = label.getText();
 		label.setText(oldText + newLabel);

@@ -1,69 +1,135 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #a5cbea;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.efrei.controller.MainPageController">
-   <top>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <children>
-            <Label layoutX="143.0" layoutY="14.0" text="A-4MENIC" textFill="#884481">
-               <font>
-                  <Font name="Bauhaus 93" size="72.0" />
-               </font>
-            </Label>
-            <Button fx:id="btnLogout" layoutX="13.0" layoutY="14.0" mnemonicParsing="false" onAction="#userLogout" style="-fx-background-color: #70ccd4;" text="Deconnexion">
-               <font>
-                  <Font name="Bauhaus 93" size="12.0" />
-               </font>
-            </Button>
-            <Line endX="470.33331298828125" endY="1.52587890625E-5" layoutX="114.0" layoutY="96.0" startX="-100.0" />
-            <MenuBar layoutX="14.0" layoutY="110.0" prefHeight="30.0" prefWidth="571.0">
-              <menus>
-                <Menu mnemonicParsing="false" text="Statistique">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="Close" />
-                  </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Attribution FILM">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="Delete" />
-                  </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Gestion SALLE">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="About" />
-                  </items>
-                </Menu>
-                  <Menu mnemonicParsing="false" text="Réservations">
-                     <items>
-                        <MenuItem mnemonicParsing="false" text="Close" />
-                     </items>
-                  </Menu>
-              </menus>
-            </MenuBar>
-         </children>
-      </AnchorPane>
-   </top>
-   <bottom>
-      <AnchorPane prefHeight="96.0" prefWidth="600.0" BorderPane.alignment="CENTER">
-         <children>
-            <Label layoutX="14.0" layoutY="150.0" prefHeight="35.0" prefWidth="373.0" text="Bienvenue dans ton espace administrateur">
-               <font>
-                  <Font name="Bauhaus 93" size="20.0" />
-               </font>
-            </Label>
-         </children>
-      </AnchorPane>
-   </bottom>
-   <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
-   </center>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #70ccd4;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.efrei.controller.MainPageController">
+	<center>
+		<AnchorPane prefHeight="201.0" prefWidth="604.0" BorderPane.alignment="CENTER">
+			<children>
+				<AnchorPane layoutY="101.0" prefHeight="251.0" prefWidth="600.0">
+					<children>
+						<Button fx:id="btnResult" layoutX="180.0" layoutY="-17.0" mnemonicParsing="false" onAction="#showResult" prefHeight="104.0" prefWidth="181.0" style="-fx-background-color: #c77fb4;">
+							<font>
+								<Font name="Bauhaus 93" size="24.0" />
+							</font>
+							<effect>
+								<DropShadow offsetX="10.0" offsetY="10.0">
+									<color>
+										<Color red="0.4424999952316284" green="0.22499999403953552" blue="0.44999998807907104" opacity="0.800000011920929" />
+									</color>
+								</DropShadow>
+							</effect>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+						</Button>
+						<Button fx:id="btnRoom" layoutX="207.0" layoutY="76.0" mnemonicParsing="false" onAction="#showRoom" prefHeight="155.0" prefWidth="124.0" style="-fx-background-color: #2fb6bc;" wrapText="true">
+							<font>
+								<Font name="Bauhaus 93" size="27.0" />
+							</font>
+                     <effect>
+                        <DropShadow blurType="ONE_PASS_BOX" height="20.0" offsetX="10.0" offsetY="-10.0" radius="9.5" width="20.0">
+                           <color>
+                              <Color red="0.10779999941587448" green="0.4772599935531616" blue="0.49000000953674316" opacity="0.800000011920929" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+						</Button>
+						<Label layoutX="200.0" layoutY="12.0" onMouseClicked="#showResult" text="Resultat">
+							<font>
+								<Font name="Bauhaus 93" size="39.0" />
+							</font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+						</Label>
+						<Label layoutX="196.0" layoutY="93.0" onMouseClicked="#showRoom" prefHeight="116.0" prefWidth="125.0" text="Gestion de salles" wrapText="true">
+							<font>
+								<Font name="Bauhaus 93" size="32.0" />
+							</font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+						</Label>
+						<Button fx:id="btnFilm" layoutX="397.0" layoutY="-21.0" mnemonicParsing="false" onAction="#showFilm" prefHeight="167.0" prefWidth="174.0" style="-fx-background-color: #208ccf;" textAlignment="RIGHT" wrapText="true">
+							<font>
+								<Font name="Bauhaus 93" size="35.0" />
+							</font>
+							<effect>
+								<DropShadow height="20.0" offsetX="-10.0" offsetY="10.0" radius="9.5" width="20.0">
+                           <color>
+                              <Color red="0.15600000321865082" green="0.18026666343212128" blue="0.5199999809265137" opacity="0.800000011920929" />
+                           </color>
+                        </DropShadow>
+							</effect>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+						</Button>
+						<Label layoutX="412.0" layoutY="17.0" onMouseClicked="#showFilm" prefHeight="100.0" prefWidth="171.0" text="Attribution de films" wrapText="true">
+							<font>
+								<Font name="Bauhaus 93" size="36.0" />
+							</font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+						</Label>
+						<Button fx:id="btnBooking" layoutX="330.0" layoutY="139.0" mnemonicParsing="false" onAction="#showBooking" prefHeight="80.0" prefWidth="235.0" style="-fx-background-color: #a15493;">
+                     <effect>
+                        <DropShadow height="20.0" offsetX="-10.0" offsetY="-10.0" radius="9.5" width="20.0">
+                           <color>
+                              <Color red="0.330049991607666" green="0.15049999952316284" blue="0.3499999940395355" opacity="0.800000011920929" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+						<Label layoutX="345.0" layoutY="157.0" onMouseClicked="#showBooking" prefHeight="43.0" prefWidth="206.0" text="Reservations">
+							<font>
+								<Font name="Bauhaus 93" size="37.0" />
+							</font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+						</Label>
+					</children>
+				</AnchorPane>
+				<AnchorPane prefHeight="115.0" prefWidth="600.0">
+					<children>
+						<Label layoutX="161.0" layoutY="-38.0" prefHeight="110.0" prefWidth="437.0" text="A-4MENIC" textFill="#884481">
+							<font>
+								<Font name="Bauhaus 93" size="96.0" />
+							</font>
+						</Label>
+						<Button fx:id="btnLogout" layoutX="27.0" layoutY="14.0" mnemonicParsing="false" onAction="#userLogout" style="-fx-background-color: #70ccd4;" text="Logout">
+							<font>
+								<Font name="Bauhaus 93" size="13.0" />
+							</font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+						</Button>
+						<Line endX="606.6666870117188" layoutX="-30.0" layoutY="58.0" startX="51.99998474121094" startY="-3.814697265625E-6" />
+					</children>
+				</AnchorPane>
+				<Label layoutX="30.0" layoutY="352.0" prefHeight="35.0" prefWidth="373.0" text="Bienvenue dans ton espace administrateur">
+					<font>
+						<Font name="Bauhaus 93" size="20.0" />
+					</font>
+				</Label>
+			</children>
+		</AnchorPane>
+	</center>
 </BorderPane>

@@ -1,7 +1,7 @@
 package com.efrei.controller;
 
-import com.efrei.Login;
 import com.efrei.MainApp;
+import com.efrei.model.Login;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

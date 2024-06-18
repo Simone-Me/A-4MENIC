@@ -44,7 +44,7 @@ public class SigninController {
 	@FXML
 	void userSignin(ActionEvent event) throws Exception {
 		Signin sn = new Signin();
-		sn.checkSignin(cinemaField, villeField, username, password, textInfoArea, wrongSignin);
+		sn.checkSignin(cinemaField, villeField, username, password, wrongSignin);
 	}
 
 	@FXML
@@ -63,7 +63,7 @@ public class SigninController {
 	@FXML
 	void addCinemaCity(MouseEvent event) throws Exception {
 		Signin sn = new Signin();
-		sn.arrayFillCinema(cinemaField, villeField, textInfoArea, wrongSignin);
+		sn.arrayFillCinema(cinemaField, villeField, wrongSignin);
 	}
 
 	@FXML
