@@ -1,24 +1,28 @@
 package com.efrei.model;
 
-import java.io.IOException;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 
 public class MainPage {
 
 	@FXML
-	private Button btnLogout;
-	
-	@FXML
-	public void initialize() throws Exception {
+	public void addNameAdmin(Label nameAdmin) throws Exception {
+		int userId = SessionManager.getInstance().getUserId();
+		System.out.println(userId);
+		String nomUser = "";
+
+		Connection connection = MyConnection.getConnection();
+		Statement statement = connection.createStatement();
+		ResultSet resultSet = statement
+				.executeQuery("SELECT * FROM admin NATURAL JOIN utilisateur where idUser = '" + userId + "'");
+		while (resultSet.next()) {
+			nomUser = resultSet.getString("username");
+			System.out.println(nomUser);
+			nameAdmin.setText(nomUser);
+		}
 	}
-	
-	@FXML
-	public void userLogout(ActionEvent event) throws IOException {
-	}
-	
-	
-		
 }

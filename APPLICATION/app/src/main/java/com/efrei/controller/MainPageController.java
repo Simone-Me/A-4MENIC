@@ -3,10 +3,12 @@ package com.efrei.controller;
 import java.io.IOException;
 
 import com.efrei.MainApp;
+import com.efrei.model.MainPage;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 
 public class MainPageController {
@@ -27,6 +29,14 @@ public class MainPageController {
 	private Button btnRoom;
 
 	@FXML
+	private Label nameAdmin;
+
+	public void initialize() throws Exception {
+		MainPage mp = new MainPage();
+		mp.addNameAdmin(nameAdmin);
+	}
+
+	@FXML
 	void userLogout(ActionEvent event) throws IOException {
 		MainApp ma = new MainApp();
 		ma.changeScene("Login.fxml");
@@ -38,6 +48,8 @@ public class MainPageController {
 
 	@FXML
 	void showFilm(MouseEvent event) throws IOException {
+		MainApp ma = new MainApp();
+		ma.changeScene("Seance.fxml");
 	}
 
 	@FXML

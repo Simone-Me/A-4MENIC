@@ -28,7 +28,6 @@ public class Signin {
 			villeList.add(ville);
 		}
 		villeField.setItems(villeList);
-
 	}
 
 	public void arrayFillCinema(ChoiceBox<String> cinemaField, ChoiceBox<String> villeField, Label infoInsertCode)
