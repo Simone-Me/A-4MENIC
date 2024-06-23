@@ -86,12 +86,6 @@ public class Signin {
 				infoInsertCode.setText("Veuillez inserir le code fournis a 6 chiffres");
 			} else {
 				try {
-					// this query find the last id present in the BDD
-					ResultSet resultId = statement
-							.executeQuery("SELECT idUser FROM utilisateur ORDER BY idUser DESC LIMIT 1;");
-					while (resultId.next()) {
-						userId = resultId.getString("idUser");
-					}
 					// this query find the cinema id selected in the BDD with protection in case of
 					// strange cinema name
 					String findCinemaQuery = "SELECT idCinema FROM cinema WHERE nomCine = ? ORDER BY nomCine";
@@ -100,15 +94,24 @@ public class Signin {
 					ResultSet resultIdCinema = findCinemaStmt.executeQuery();
 					while (resultIdCinema.next()) {
 						cinemaId = resultIdCinema.getString("idCinema");
+						System.out.println(cinemaId);
 					}
 					// this query add into user the new user
 					String insertUserQuery = "INSERT INTO utilisateur (username, password) VALUES ('" + user + "','"
 							+ pw + "');";
 					PreparedStatement insertUserStmt = connection.prepareStatement(insertUserQuery);
 					insertUserStmt.executeUpdate();
+					// this query find the last id present in the BDD
+					ResultSet resultId = statement
+							.executeQuery("SELECT * FROM utilisateur ORDER BY idUser DESC LIMIT 1;");
+					while (resultId.next()) {
+						userId = resultId.getString("idUser");
+						System.out.println(userId + " : userID");
+					}
 					// this query grant admin role the user
-					String insertAdminQuery = "INSERT INTO admin (isAdmin, idUser, idCinema) VALUES (1, '" + userId
-							+ "','" + cinemaId + "');";
+					String insertAdminQuery = "INSERT INTO admin (idAdmin, isAdmin, idUser, idCinema) VALUES ('"
+							+ userId + "', 1, '" + userId + "','" + cinemaId + "');";
+					System.out.println(insertAdminQuery);
 					PreparedStatement insertAdminStmt = connection.prepareStatement(insertAdminQuery);
 					insertAdminStmt.executeUpdate();
 

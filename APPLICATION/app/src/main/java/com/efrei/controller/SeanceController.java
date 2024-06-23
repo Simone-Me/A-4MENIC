@@ -56,7 +56,7 @@ public class SeanceController {
 		sn.arrayFillFilm(filmField);
 		sn.fillTable(tableViewFilm, filmSeance, hourSeance, roomSeance);
 		roomField.setValue("Salle");
-		hourField.setValue("19:30");
+		hourField.setValue("19:00");
 		filmField.setValue("Moonlight");
 	}
 

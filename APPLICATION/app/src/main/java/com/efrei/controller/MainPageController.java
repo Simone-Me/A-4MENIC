@@ -44,6 +44,8 @@ public class MainPageController {
 
 	@FXML
 	void showBooking(MouseEvent event) throws IOException {
+		MainApp ma = new MainApp();
+		ma.changeScene("Reservation.fxml");
 	}
 
 	@FXML
@@ -54,6 +56,8 @@ public class MainPageController {
 
 	@FXML
 	void showResult(MouseEvent event) throws IOException {
+		MainApp ma = new MainApp();
+		ma.changeScene("Statistique.fxml");
 	}
 
 	@FXML

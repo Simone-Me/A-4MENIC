@@ -77,6 +77,11 @@
 								<Font name="System Bold Italic" size="24.0" />
 							</font>
 						</Button>
+                  <Label layoutX="345.0" layoutY="9.0" prefHeight="118.0" prefWidth="39.0" text="t" textFill="#884481">
+                     <font>
+                        <Font name="Bauhaus 93" size="104.0" />
+                     </font>
+                  </Label>
 					</children>
 				</AnchorPane>
 				<AnchorPane layoutX="20.0" layoutY="348.0" prefHeight="39.0" prefWidth="362.0">

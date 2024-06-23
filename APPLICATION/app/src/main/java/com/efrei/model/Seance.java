@@ -60,6 +60,16 @@ public class Seance {
 	public void setFilm(String film) {
 		this.film = film;
 	}
+	
+	//remove numbers to the String
+	public static String filterLetters(String input) {
+		return input.replaceAll("^[0-9]+", "");
+	}
+	
+	//remove letters to the String
+	public static String filterNumbers(String input) {
+		return input.replaceAll("[^0-9]", "");
+	}
 
 	public void arrayFillRoom(ChoiceBox<String> roomField) throws Exception {
 		int cinemaId = SessionManager.getInstance().getCinemaId();
@@ -71,10 +81,12 @@ public class Seance {
 
 		ObservableList<String> roomList = FXCollections.observableArrayList();
 		while (resultSetRoom.next()) {
+			String idRoom = resultSetRoom.getString("idSalle");
 			String room = resultSetRoom.getString("nomSalle");
-			roomList.add(room);
+			roomList.add(idRoom + room);
 		}
 		roomField.setItems(roomList);
+		System.out.println(roomList);
 	}
 
 	public void arrayFillHour(ChoiceBox<String> hourField, ChoiceBox<String> roomField, Label wrongSelectFilm)
@@ -82,13 +94,16 @@ public class Seance {
 		ObservableList<String> hourList = FXCollections.observableArrayList();
 		hourList.add("21:30");
 		hourList.add("19:00");
+		hourList.add("16:00");
 
 		String nameRoom = roomField.getValue();
-		System.out.println(nameRoom);
+		String filteredRoom = filterLetters(nameRoom);
+		String filteredIdRoom = filterNumbers(nameRoom);
+		System.out.println(filteredRoom);
 		Connection connection = MyConnection.getConnection();
 		Statement statement = connection.createStatement();
 		ResultSet resultSetRoom = statement
-				.executeQuery("SELECT DISTINCT * FROM seance NATURAL JOIN salle WHERE nomSalle = '" + nameRoom
+				.executeQuery("SELECT DISTINCT * FROM seance NATURAL JOIN salle WHERE idSalle = '" + filteredIdRoom
 						+ "'ORDER BY nomSalle");
 		while (resultSetRoom.next()) {
 			String hourSeance = resultSetRoom.getString("horaire");
@@ -97,10 +112,10 @@ public class Seance {
 				wrongSelectFilm.setText("Horaire 21:30 deja choisi");
 			} else if ("19:00".equals(hourSeance)) {
 				wrongSelectFilm.setText("Horaire 19:00 deja choisi");
+			} else if ("16:00".equals(hourSeance)) {
+				wrongSelectFilm.setText("Horaire 16:00 deja choisi");
 			}
-
 		}
-
 		hourField.setItems(hourList);
 	}
 
@@ -122,6 +137,8 @@ public class Seance {
 		String roomSeance = roomField.getValue();
 		String hourSeance = hourField.getValue();
 		String filmSeance = filmField.getValue();
+		
+		roomSeance = filterLetters(roomSeance);
 		int cinemaId = SessionManager.getInstance().getCinemaId();
 		Connection connection = MyConnection.getConnection();
 		Statement statement = connection.createStatement();
@@ -141,7 +158,7 @@ public class Seance {
 					idSalle = resultSetRoom.getString("idSalle");
 				}
 			} catch (Exception e) {
-				System.out.println(e.getMessage());
+				System.err.println(e.getMessage() + "line 158");
 			}
 
 			// transform the film's name in its id
@@ -152,19 +169,19 @@ public class Seance {
 					idFilm = resultSetFilm.getString("idFilm");
 				}
 			} catch (Exception e) {
-				System.out.println(e.getMessage());
+				System.err.println(e.getMessage() + "line 169");
 			}
 			try {
 				String insertUserQuery = "INSERT INTO seance (idFilm, idSalle, horaire) VALUES ('" + idFilm + "','"
 						+ idSalle + "','" + hourSeance + "');";
+				System.out.println(insertUserQuery);
 				PreparedStatement insertSeanceStmt = connection.prepareStatement(insertUserQuery);
 				insertSeanceStmt.executeUpdate();
 				wrongSelectFilm.setText("Seance ajoutee, recharger la page");
 			} catch (Exception e) {
-				System.out.println(e.getMessage());
+				System.err.println(e.getMessage() + "line 178");
 				wrongSelectFilm.setText("error dans l'ajout de la Seance");
 			}
-
 		}
 	}
 
@@ -185,7 +202,7 @@ public class Seance {
 		Connection connection = MyConnection.getConnection();
 		Statement statement = connection.createStatement();
 		ResultSet resultSetSeance = statement
-				.executeQuery("SELECT * FROM seance NATURAL JOIN cinema where idCinema = '" + cinemaId + "'");
+				.executeQuery("SELECT * FROM seance NATURAL JOIN salle where idCinema = '" + cinemaId + "'");
 		ObservableList<Seance> seanceList = FXCollections.observableArrayList();
 		while (resultSetSeance.next()) {
 			idSalle = resultSetSeance.getString("idSalle");
@@ -203,7 +220,7 @@ public class Seance {
 					nomSalle = resultSetRoom.getString("nomSalle");
 				}
 			} catch (Exception e) {
-				System.out.println(e.getMessage());
+				System.err.println(e.getMessage() + "line 219");
 			}
 
 			// transform the film's id in its name
@@ -213,7 +230,7 @@ public class Seance {
 					nomFilm = resultSetFilm.getString("nomFilm");
 				}
 			} catch (Exception e) {
-				System.out.println(e.getMessage());
+				System.err.println(e.getMessage() + "line 230");
 			}
 			seanceList.add(new Seance(nomSalle, heureSeance, nomFilm));
 		}
