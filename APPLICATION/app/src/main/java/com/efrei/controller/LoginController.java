@@ -30,6 +30,9 @@ public class LoginController {
 
 	@FXML
 	private PasswordField password;
+	
+    @FXML
+    private TextField codePassword;
 
 	@FXML
 	private TextField username;
@@ -81,8 +84,8 @@ public class LoginController {
 
 	@FXML
 	void userSignin(ActionEvent event) throws Exception {
-		MainApp ma = new MainApp();
-		ma.changeScene("Signin.fxml");
+		Login login = new Login();
+		login.checkSignin(codePassword, infoInsertCode);
 	}
 
 	@FXML
